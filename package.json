@@ -2,9 +2,9 @@
   "name": "grizzly_users",
   "version": "1.0.0",
   "description": "Web app that will allow employees or subcontractors to log in and interact with Grizzly Satellite",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,23 @@
   "bugs": {
     "url": "https://github.com/smcgee31/grizzly_users/issues"
   },
-  "homepage": "https://github.com/smcgee31/grizzly_users#readme"
+  "homepage": "https://github.com/smcgee31/grizzly_users#readme",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "mongoose": "^4.7.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.11"
+  }
 }
