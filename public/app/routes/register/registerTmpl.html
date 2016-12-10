@@ -1,0 +1,14 @@
+<nav-dir></nav-dir>
+
+<div class="register">
+  
+  <form class="registerForm" ng-submit="register(newUser)">
+    <input id="registerName" type="text" placeholder="Full Name..." ng-model="newUser.name" required/>
+    <input id="registerEmail" type="email" placeholder="Email..." ng-model="newUser.email" required/>
+    <input id="registerPhone" type="tel" pattern="^\d{3}-\d{3}\d{4}$" placeholder="Phone..." ng-model="newUser.phone" required/>
+    <input id="registerUsername" type="username" placeholder="Username..." ng-model="newUser.username" required/>
+    <input id="registerPassword" type="text" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="xxx-xxx-xxxx" placeholder="Password..." ng-model="newUser.password" required/><br />
+    <button type="submit">Register</button>
+  </form>
+
+</div>

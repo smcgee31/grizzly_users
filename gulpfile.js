@@ -1,11 +1,12 @@
 // REQUIRE DEPENDENCIES
-const gulp     = require('gulp');
-const concat   = require('gulp-concat');
-const annotate = require('gulp-ng-annotate');
-const uglify   = require('gulp-uglify');
-const watch    = require('gulp-watch');
-const sass     = require('gulp-sass');
-const babel    = require('gulp-babel');
+const gulp       = require('gulp')
+    , concat     = require('gulp-concat')
+    , annotate   = require('gulp-ng-annotate')
+    , uglify     = require('gulp-uglify')
+    , watch      = require('gulp-watch')
+    , sass       = require('gulp-sass')
+    , babel      = require('gulp-babel')
+    , sourcemaps = require('gulp-sourcemaps')
 
 //  DECLARE FILE PATHS
 const paths = {
@@ -16,10 +17,12 @@ const paths = {
 // DEFINE TASKS
 gulp.task('js', () => {
   return gulp.src(paths.jsSource)
+    .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(concat('bundle.js'))
     .pipe(annotate())
     //.pipe(uglify()) // uncomment when code is production ready
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./public'));
 });
 

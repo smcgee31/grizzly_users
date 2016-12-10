@@ -1,14 +1,14 @@
 // EXTERNAL MODULES
-const express    = require('express');
-const bodyParser = require('body-parser');
-const session    = require('express-session');
-const mongoose   = require('mongoose');
+const express    = require('express')
+    , bodyParser = require('body-parser')
+    , session    = require('express-session')
+    , mongoose   = require('mongoose')
 // CONFIG
-const config     = require('./config');
+    , config     = require('./config')
 // CONTROLLERS
-const UserCtrl   = require('./controllers/UserCtrl');
+    , UserCtrl   = require('./controllers/UserCtrl')
 // SERVICES
-const passport   = require('./services/passport');
+    , passport   = require('./services/passport')
 
 // POLICIES
 const isAuthed = (req, res, next) => {
