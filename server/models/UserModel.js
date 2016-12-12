@@ -1,5 +1,6 @@
-const mongoose  = require('mongoose')
-    , bcrypt    = require('bcryptjs')
+const mongoose = require('mongoose')
+    , bcrypt   = require('bcryptjs')
+    , objectId = mongoose.Schema.Types.ObjectId;
 
 const User = new mongoose.Schema({
     name    : { type: String, required: true }
@@ -7,6 +8,7 @@ const User = new mongoose.Schema({
   , phone   : { type: String, required: true, index : true, trim: true }
   , username: { type: String, required: true, unique: true }
   , password: { type: String, required: true }
+  , jobs: [ {type: objectId, ref: 'jobs'} ]
 });
 
 User.pre('save', function(next) {
