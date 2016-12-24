@@ -21,7 +21,16 @@
     </div>
     <div>
       <label for="registerPassword">Password: </label>
-      <input id="registerPassword" type="text" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,20}$" title="Password must have only letters and/or numbers and must be between 6-20 characters" min="6" max="20" ng-model="newUser.password" required/>
+      <input id="registerPassword" type="text" pattern="^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{6,20}$" title="Password must have at least one capital letter, one special character, and must be between 6-20 characters" min="6" max="20" ng-model="newUser.password" required/>
+        <!--EXPLANATION: REGEX PATTERN FOR PASSWORD  
+        ^                         Start anchor
+        (?=.*[A-Z])               Ensure string has at least one uppercase letter. For two uppercase use -> (?=.*[A-Z].*[A-Z])
+        (?=.*[!@#$&*])            Ensure string has at least one special case letter.
+        (?=.*[0-9])               Ensure string has at least one digit. For two digits use -> (?=.*[0-9].*[0-9])
+        .{6,20}                  Ensure string is of length 6 - 20.
+        $                         End anchor.
+        end explanation-->
+
     </div>
     <div>
       <button type="submit">Register</button> 

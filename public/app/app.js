@@ -35,6 +35,27 @@ angular.module('app', ['ui.router'])
           });
         }
       }
+    })
+    .state('jobs', {
+      url: '/jobs',
+      templateUrl: './app/routes/jobs/jobsTmpl.html',
+      controller: 'jobsCtrl',
+      resolve: {
+        user: (authService, $state) => {
+          return authService.getCurrentUser().then((response) => {
+            if (!response.data)
+              $state.go('login');
+            return response.data;
+          }).catch((err) => {
+            $state.go('login');
+          });
+        }
+      }
+    })
+    .state('past', {
+      url: '/past',
+      templateUrl: './app/routes/past/pastTmpl.html',
+      controller: 'pastCtrl'
     });
 
 });

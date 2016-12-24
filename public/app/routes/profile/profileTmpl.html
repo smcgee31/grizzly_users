@@ -1,4 +1,10 @@
 <nav-dir></nav-dir>
-<div>
-  {{user.name}}
+<div class="profile">
+  <div class="userLine">
+    {{user.name}}
+  </div>
+  <div class="profileNav">
+    <button type=""><a ui-sref="jobs">Enter Jobs</a></button>
+    <button type=""> <a ui-sref="past">See Prev Jobs</a></button>
+  </div>
 </div>

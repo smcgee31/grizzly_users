@@ -6,7 +6,7 @@ const gulp       = require('gulp')
     , watch      = require('gulp-watch')
     , sass       = require('gulp-sass')
     , babel      = require('gulp-babel')
-    , sourcemaps = require('gulp-sourcemaps')
+    , sourcemaps = require('gulp-sourcemaps');
 
 //  DECLARE FILE PATHS
 const paths = {

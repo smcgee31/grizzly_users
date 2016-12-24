@@ -18,7 +18,6 @@ const isAuthed = (req, res, next) => {
 
 // EXPRESS
 const app = express();
-
 app.use(express.static(__dirname + './../public'));
 // app.use(favicon( __dirname + './../public/assets/favicon.ico' ));
 app.use(bodyParser.json());

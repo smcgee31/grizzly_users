@@ -3,7 +3,6 @@ angular.module('app').controller('registerCtrl', function($scope, authService, $
   $scope.register = function(user) {
     authService.registerUser(user)
     .then(function(response) {
-      console.log( 'response:', response );
       if (!response.data) {
         alert('Unable to create user');
       } else {

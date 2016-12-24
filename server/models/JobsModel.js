@@ -1,12 +1,27 @@
 const mongoose = require('mongoose');
+const config = require('jobsConfig');
 const objectId = mongoose.Schema.Types.ObjectId;
 
 const Jobs = new mongoose.Schema({
-    custName   : {type: String, required: true, maxlength: 20},
-    custPhone   : {type: Number, required: true, min      : 0},
-    base   : {type: Number, required: true, min      : 0},
-    balance: {type: Number, required: true, min      : 0},
-    user   : {type: objectId, ref   : 'User'}
+      jobDate:               { type: String, required: true }
+    , custName:              { type: String, required: true }
+    , custPhone:             { type: String, required: true, index: true, trim: true  }
+    , install_primaryHopper: { type: Number, min: 0, max: config.newInstPrimaryHopper }
+    , install_addHopper:     { type: Number, min: 0, max: config.install_addHopper }
+    , install_primaryVip:    { type: Number, min: 0, max: config.install_primaryVip }
+    , install_addVip:        { type: Number, min: 0, max: config.install_addVip }
+    , install_dishNet:       { type: Number, min: 0, max: config.install_dishNet }
+    , upgrade_primaryHopper: { type: Number, min: 0, max: config.upgrade_primaryHopper }
+    , upgrade_addHopper:     { type: Number, min: 0, max: config.upgrade_addHopper }
+    , upgrade_addJoey:       { type: Number, min: 0, max: config.upgrade_addJoey }
+    , upgrade_primaryVip:    { type: Number, min: 0, max: config.upgrade_primaryVip }
+    , upgrade_addVip:        { type: Number, min: 0, max: config.upgrade_addVip }
+    , upgrade_dishKit:       { type: Number, min: 0, max: config.upgrade_dishKit }
+    , troubleCall:           { type: Number, min: 0, max: config.troubleCall }
+    , serviceCall:           { type: Number, min: 0, max: config.serviceCall }
+    , serviceInstall:        { type: Number, min: 0, max: config.serviceInstall }
+
+    , user: { type: objectId, ref: 'User' }
 });
 
 module.exports = mongoose.model('Jobs', Jobs);
