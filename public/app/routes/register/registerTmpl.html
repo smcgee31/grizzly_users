@@ -5,7 +5,7 @@
   <form class="registerForm" ng-submit="register(newUser)">
     <div> 
       <label for="registerName">Name: </label>
-      <input id="registerName" type="text" ng-model="newUser.name" required/>
+      <input id="registerName" type="text" ng-model="newUser.name" autofocus required/>
     </div>
     <div>
       <label for="registerEmail">Email: </label>
@@ -17,11 +17,11 @@
     </div>
     <div>
       <label for="registerUsername">Username: </label>
-      <input id="registerUsername" type="username" ng-model="newUser.username" required/>
+      <input id="registerUsername" type="text" ng-model="newUser.username" required/>
     </div>
     <div>
       <label for="registerPassword">Password: </label>
-      <input id="registerPassword" type="text" pattern="^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{6,20}$" title="Password must have at least one capital letter, one special character, and must be between 6-20 characters" min="6" max="20" ng-model="newUser.password" required/>
+      <input id="registerPassword" type="password" pattern="^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{6,20}$" title="Password must have at least one capital letter, one special character, and must be between 6-20 characters" min="6" max="20" ng-model="newUser.password" required/>
         <!--EXPLANATION: REGEX PATTERN FOR PASSWORD  
         ^                         Start anchor
         (?=.*[A-Z])               Ensure string has at least one uppercase letter. For two uppercase use -> (?=.*[A-Z].*[A-Z])

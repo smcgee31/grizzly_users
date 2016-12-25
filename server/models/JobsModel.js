@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const config = require('jobsConfig');
+const config   = require('jobsConfig');
 const objectId = mongoose.Schema.Types.ObjectId;
 
 const Jobs = new mongoose.Schema({

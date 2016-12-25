@@ -4,24 +4,32 @@
     {{user.name}}
   </div>
 
-  <form class="jobsForm" ng-submit="enterJob(newJob)">
+  <div class="checksForJobType">
+    <input id="checkForInstall" type="radio" name="jobType" ng-model="jobType" value="Install" ng-click="resetForm(newJob)"><label for="checkForInput">Install</label>
+    <input id="checkForUpgrade" type="radio" name="jobType" ng-model="jobType" value="Upgrade" ng-click="resetForm(newJob)"><label for="checkForUpgrade">Upgrade</label>
+    <input id="checkForService" type="radio" name="jobType" ng-model="jobType" value="Service" ng-click="resetForm(newJob)"><label for="checkForService">Service</label>
+  </div>
+  <!-- end checksForJobType -->
+
+  <form class="jobsForm" name="newJob" ng-submit="enterJob(newJob)" autocomplete="off">
+
     <div class="custInfo">
       <div>
         <label for="jobDate">Date of Job: </label>
-        <input id="jobDate" type="text" ng-model="newJob.jobDate">
+        <input id="jobDate" type="date" ng-model="newJob.jobDate" autofocus required>
       </div>
       <div>
         <label for="custName">Customer Name: </label>
-        <input id="custName" type="text" ng-model="newJob.custName">
+        <input id="custName" type="text" ng-model="newJob.custName" required>
       </div>
       <div>
         <label for="custPhone">Customer Phone: </label>
-        <input id="custPhone" type="text" ng-model="newJob.custPhone">
+        <input id="custPhone" type="tel" ng-model="newJob.custPhone" required>
       </div>
     </div>
     <!-- end custInfo -->
 
-    <div class="installInfo">
+    <div class="installInfo" ng-show="jobType === 'Install'">
       <div>
         <input id="install_primaryHopper" type="checkbox" ng-model="newJob.install_primaryHopper" value="1"><label for="install_primaryHopper">Installed Primary Hopper</label>
       </div>
@@ -61,7 +69,7 @@
     </div>
     <!-- end installInfo -->
 
-    <div class="upgradeInfo">
+    <div class="upgradeInfo" ng-show="jobType === 'Upgrade'">
       <div>
         <input id="upgrade_primaryHopper" type="checkbox" ng-model="newJob.upgrade_primaryHopper" value="1"><label for="upgrade_primaryHopper">Upgraded Primary Hopper</label>
       </div>
@@ -79,12 +87,11 @@
         </select>
         <label for="upgrade_addlJoey">How many Joeys?</label>
       </div>
-    </div>
-    <div>
-      <input id="upgrade_primaryVip" type="checkbox" ng-model="newJob.upgrade_primaryVip" value="1"><label for="upgrade_primaryVip">Upgrade Primary ViP receiver</label>
-    </div>
-    <div>
-      <select id="upgrade_addlVip" ng-model="newJob.upgrade_addlVip">
+      <div>
+        <input id="upgrade_primaryVip" type="checkbox" ng-model="newJob.upgrade_primaryVip" value="1"><label for="upgrade_primaryVip">Upgrade Primary ViP receiver</label>
+      </div>
+      <div>
+        <select id="upgrade_addlVip" ng-model="newJob.upgrade_addlVip">
         <option value="1">1</option> 
         <option value="2">2</option>
         <option value="3">3</option>
@@ -94,23 +101,31 @@
         <option value="7">7</option>
         <option value="8">8</option>
       </select>
-      <label for="upgrade_addlVip">How many more ViP receivers?</label>
+        <label for="upgrade_addlVip">How many more ViP receivers?</label>
+      </div>
+      <div>
+        <input id="upgrade_dishKit" type="checkbox" ng-model="newJob.upgrade_dishKit" value="1"><label for="upgrade_dishKit">Upgraded Dish Kit</label>
+      </div>
     </div>
-    <div>
-      <input id="upgrade_dishKit" type="checkbox" ng-model="newJob.upgrade_dishKit" value="1"><label for="upgrade_dishKit">Upgraded Dish Kit</label>
+    <!-- end upgradeInfo -->
+
+    <div class="serviceInfo" ng-show="jobType === 'Service'">
+      <div>
+        <input id="troubleCall" type="checkbox" ng-model="newJob.troubleCall" value="1"><label for="troubleCall">Performed Trouble Call</label>
+      </div>
+      <div>
+        <input id="serviceCall" type="checkbox" ng-model="newJob.serviceCall" value="1"><label for="serviceCall">Performed Service Call</label>
+      </div>
+      <div>
+        <input id="serviceInstall" type="checkbox" ng-model="newJob.serviceInstall" value="1"><label for="serviceInstall">Performed Service Install</label>
+      </div>
+      <div>
+      </div>
     </div>
-    <div>
-      <input id="troubleCall" type="checkbox" ng-model="newJob.troubleCall" value="1"><label for="troubleCall">Performed Trouble Call</label>
-    </div>
-    <div>
-      <input id="serviceCall" type="checkbox" ng-model="newJob.serviceCall" value="1"><label for="serviceCall">Performed Service Call</label>
-    </div>
-    <div>
-      <input id="serviceInstall" type="checkbox" ng-model="newJob.serviceInstall" value="1"><label for="serviceInstall">Performed Service Install</label>
-    </div>
-    <div>
-      <button type="submit">Submit Job</button> 
-    </div>
+    <!-- end serviceInfo -->
+
+    <button type="submit">Submit Job</button>
+
   </form>
 
 </div>
