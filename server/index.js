@@ -7,6 +7,7 @@ const express    = require('express')
     , config     = require('./config')
 // CONTROLLERS
     , UserCtrl   = require('./controllers/UserCtrl')
+    , JobsCtrl   = require('./controllers/JobsCtrl')
 // SERVICES
     , passport   = require('./services/passport')
 
@@ -35,7 +36,7 @@ app.use(passport.session());
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/me'
 }));
-app.get('/logout', function(req, res, next) {
+app.get('/logout', (req, res, next) => {
   req.logout();
   return res.status(200).send('logged out');
 });
@@ -46,8 +47,8 @@ app.get('/user', UserCtrl.read);
 app.get('/me', isAuthed, UserCtrl.me);
 app.put('/user/:_id', isAuthed, UserCtrl.update);
 
-// JOB ENDPOINTS
-app.post('/jobs/:id', debtCRUD.createNewDebt);
+// OTHER ENDPOINTS
+app.post('/jobs/:id', JobsCtrl.addJob);
 
 // CONNECTIONS
 const mongoURI = config.MONGO_URI;
@@ -57,6 +58,6 @@ mongoose.connect(mongoURI);
 mongoose.connection.once('open', () => {
   console.log( `Connected to MongoDB at ${mongoURI}` );
   app.listen(port, () => {
-    console.log( `!!! PARTY TIME !!! \nServer running on port ${port}` );
+    console.log( `!!! PARTY TIME !!!\nServer running on port ${port}` );
   });
 });

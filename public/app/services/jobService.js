@@ -3,27 +3,12 @@ angular.module('app').service('jobService', function ($http) {
   this.addJob = (newJob, id) => {
     return $http({
       method: 'POST',
-      url: '/user?_id=' + id
+      url: '/jobs/' + id,
+      data: newJob
     }).then((response) => {
-      return response;
+      return response.data;
     });
   };
 
-  this.getUser = (id) => {
-    return $http({
-      method: 'GET',
-      url: '/user?_id=' + id
-    }).then((response) => {
-      return response;
-    });
-  };
-
-  this.deleteUser = (id) => {
-    return $http({
-      method: 'DELETE',
-      url: '/user/' + id
-    }).then((response) => {
-      return response;
-    });
-  };
+  
 });
