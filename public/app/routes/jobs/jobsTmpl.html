@@ -1,4 +1,116 @@
 <nav-dir></nav-dir>
 <div class="jobs">
-  {{user.name}}
+  <div class="userLine">
+    {{user.name}}
+  </div>
+
+  <form class="jobsForm" ng-submit="enterJob(newJob)">
+    <div class="custInfo">
+      <div>
+        <label for="jobDate">Date of Job: </label>
+        <input id="jobDate" type="text" ng-model="newJob.jobDate">
+      </div>
+      <div>
+        <label for="custName">Customer Name: </label>
+        <input id="custName" type="text" ng-model="newJob.custName">
+      </div>
+      <div>
+        <label for="custPhone">Customer Phone: </label>
+        <input id="custPhone" type="text" ng-model="newJob.custPhone">
+      </div>
+    </div>
+    <!-- end custInfo -->
+
+    <div class="installInfo">
+      <div>
+        <input id="install_primaryHopper" type="checkbox" ng-model="newJob.install_primaryHopper" value="1"><label for="install_primaryHopper">Installed Primary Hopper</label>
+      </div>
+      <div>
+        <input id="install_addlHopper" type="checkbox" ng-model="newJob.install_addlHopper" value="1"><label for="install_addlHopper">Installed Additional Hopper</label>
+      </div>
+      <div>
+        <select id="install_joeys" ng-model="newJob.install_joeys">
+          <option value="1">1</option> 
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+        <label for="install_joeys">How many Joeys?</label>
+      </div>
+      <div>
+        <input id="install_primaryVip" type="checkbox" ng-model="newJob.install_primaryVip" value="1"><label for="install_primaryVip">Installed Primary ViP receiver</label>
+      </div>
+      <div>
+        <select id="install_addlVip" ng-model="newJob.install_addlVip">
+          <option value="1">1</option> 
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
+        <label for="install_addlVip">How many more ViP receivers?</label>
+      </div>
+      <div>
+        <input id="install_dishNet" type="checkbox" ng-model="newJob.install_dishNet" value="1"><label for="install_dishNet">Installed DishNET</label>
+      </div>
+    </div>
+    <!-- end installInfo -->
+
+    <div class="upgradeInfo">
+      <div>
+        <input id="upgrade_primaryHopper" type="checkbox" ng-model="newJob.upgrade_primaryHopper" value="1"><label for="upgrade_primaryHopper">Upgraded Primary Hopper</label>
+      </div>
+      <div>
+        <input id="upgrade_addlHopper" type="checkbox" ng-model="newJob.upgrade_addlHopper" value="1"><label for="upgrade_addlHopper">Upgraded Additional Hopper</label>
+      </div>
+      <div>
+        <select id="upgrade_addlJoey" ng-model="newJob.upgrade_addlJoey">
+          <option value="1">1</option> 
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+        <label for="upgrade_addlJoey">How many Joeys?</label>
+      </div>
+    </div>
+    <div>
+      <input id="upgrade_primaryVip" type="checkbox" ng-model="newJob.upgrade_primaryVip" value="1"><label for="upgrade_primaryVip">Upgrade Primary ViP receiver</label>
+    </div>
+    <div>
+      <select id="upgrade_addlVip" ng-model="newJob.upgrade_addlVip">
+        <option value="1">1</option> 
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+      <label for="upgrade_addlVip">How many more ViP receivers?</label>
+    </div>
+    <div>
+      <input id="upgrade_dishKit" type="checkbox" ng-model="newJob.upgrade_dishKit" value="1"><label for="upgrade_dishKit">Upgraded Dish Kit</label>
+    </div>
+    <div>
+      <input id="troubleCall" type="checkbox" ng-model="newJob.troubleCall" value="1"><label for="troubleCall">Performed Trouble Call</label>
+    </div>
+    <div>
+      <input id="serviceCall" type="checkbox" ng-model="newJob.serviceCall" value="1"><label for="serviceCall">Performed Service Call</label>
+    </div>
+    <div>
+      <input id="serviceInstall" type="checkbox" ng-model="newJob.serviceInstall" value="1"><label for="serviceInstall">Performed Service Install</label>
+    </div>
+    <div>
+      <button type="submit">Submit Job</button> 
+    </div>
+  </form>
+
 </div>

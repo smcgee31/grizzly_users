@@ -7,15 +7,16 @@ const Jobs = new mongoose.Schema({
     , custName:              { type: String, required: true }
     , custPhone:             { type: String, required: true, index: true, trim: true  }
     , install_primaryHopper: { type: Number, min: 0, max: config.newInstPrimaryHopper }
-    , install_addHopper:     { type: Number, min: 0, max: config.install_addHopper }
+    , install_addlHopper:    { type: Number, min: 0, max: config.install_addHopper }
+    , install_joeys:         { type: Number, min: 0, max: config.install_joeys }
     , install_primaryVip:    { type: Number, min: 0, max: config.install_primaryVip }
-    , install_addVip:        { type: Number, min: 0, max: config.install_addVip }
+    , install_addlVip:       { type: Number, min: 0, max: config.install_addVip }
     , install_dishNet:       { type: Number, min: 0, max: config.install_dishNet }
     , upgrade_primaryHopper: { type: Number, min: 0, max: config.upgrade_primaryHopper }
-    , upgrade_addHopper:     { type: Number, min: 0, max: config.upgrade_addHopper }
-    , upgrade_addJoey:       { type: Number, min: 0, max: config.upgrade_addJoey }
+    , upgrade_addlHopper:    { type: Number, min: 0, max: config.upgrade_addHopper }
+    , upgrade_addlJoey:      { type: Number, min: 0, max: config.upgrade_addJoey }
     , upgrade_primaryVip:    { type: Number, min: 0, max: config.upgrade_primaryVip }
-    , upgrade_addVip:        { type: Number, min: 0, max: config.upgrade_addVip }
+    , upgrade_addlVip:       { type: Number, min: 0, max: config.upgrade_addVip }
     , upgrade_dishKit:       { type: Number, min: 0, max: config.upgrade_dishKit }
     , troubleCall:           { type: Number, min: 0, max: config.troubleCall }
     , serviceCall:           { type: Number, min: 0, max: config.serviceCall }

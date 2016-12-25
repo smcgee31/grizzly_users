@@ -2,6 +2,7 @@
 module.exports = {
     install_primaryHopper: 1
   , install_addHopper: 1
+  , install_joeys: 6
   , install_addJoey: 7
   , install_primaryVip: 1
   , install_addVip: 5

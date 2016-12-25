@@ -1,7 +1,7 @@
 angular.module('app').controller('navCtrl', function($scope, authService, $state) {
-  $scope.logout = function() {
+  $scope.logout = () => {
     authService.logout()
-      .then(function(response) {
+      .then((response) => {
         $state.go('login');
     });
   };
