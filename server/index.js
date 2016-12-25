@@ -46,6 +46,9 @@ app.get('/user', UserCtrl.read);
 app.get('/me', isAuthed, UserCtrl.me);
 app.put('/user/:_id', isAuthed, UserCtrl.update);
 
+// JOB ENDPOINTS
+app.post('/jobs/:id', debtCRUD.createNewDebt);
+
 // CONNECTIONS
 const mongoURI = config.MONGO_URI;
 const port     = config.PORT;

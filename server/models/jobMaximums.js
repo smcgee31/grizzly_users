@@ -1,17 +1,16 @@
 // config for the maximum number of each item that can be installed on any given job
 module.exports = {
     install_primaryHopper: 1
-  , install_addHopper: 1
+  , install_addlHopper: 1
   , install_joeys: 6
-  , install_addJoey: 7
   , install_primaryVip: 1
-  , install_addVip: 5
+  , install_addlVip: 7
   , install_dishNet: 1
   , upgrade_primaryHopper: 1
-  , upgrade_addHopper: 1
-  , upgrade_addJoey: 7
+  , upgrade_addlHopper: 1
+  , upgrade_addlJoey: 6
   , upgrade_primaryVip: 1
-  , upgrade_addVip: 5
+  , upgrade_addlVip: 7
   , upgrade_dishKit: 1
   , troubleCall: 1
   , serviceCall: 1

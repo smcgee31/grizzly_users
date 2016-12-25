@@ -1,4 +1,4 @@
-angular.module('app').controller('jobsCtrl', function($scope, $state, user) {
+angular.module('app').controller('jobsCtrl', function($scope, $state, user, jobService) {
   $scope.user = user;
   console.log( 'user:', user );
 
@@ -6,5 +6,10 @@ angular.module('app').controller('jobsCtrl', function($scope, $state, user) {
       $scope.newJob = {};
     };
 
-
+  $scope.addJob = ( newJob ) => {
+    jobService.addJob( newJob, $scope.user._id )
+      .then( ( response ) => {
+        $scope.newJob = {};
+      } );
+  };
 });

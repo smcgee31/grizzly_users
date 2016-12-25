@@ -9,7 +9,9 @@ const User = new mongoose.Schema({
   , username: { type: String, required: true, unique: true }
   , password: { type: String, required: true }
 
-  , jobs:     [ {type: objectId, ref:      'jobs'} ]
+  , jobs: [ 
+      {type: objectId, ref: 'Job'} 
+    ]
 });
 
 User.pre('save', function(next) {

@@ -1,9 +1,9 @@
-angular.module('app').service('userService', function($http) {
+angular.module('app').service('jobService', function ($http) {
 
-  this.getUsers = () => {
+  this.addJob = (newJob, id) => {
     return $http({
-      method: 'GET',
-      url: '/user'
+      method: 'POST',
+      url: '/user?_id=' + id
     }).then((response) => {
       return response;
     });
