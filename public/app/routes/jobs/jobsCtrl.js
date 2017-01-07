@@ -1,17 +1,13 @@
-angular.module('app').controller('jobsCtrl', function($scope, $state, user, jobService) {
+angular.module('app').controller('jobsCtrl', function ($scope, $state, user, jobService) {
   $scope.user = user;
-  console.log( 'user:', user );
+  $scope.jobType = false;
 
-  $scope.resetForm = () => {
-      $scope.newJob = {};
-    };
-
-  $scope.addJob = ( newJob ) => {
-    jobService.addJob( newJob, $scope.user._id )
-      .then(( response ) => {
-        alert('Job successfully entered');
-        console.log( 'response:', response );
+  $scope.addJob = (newJob) => {
+    jobService.addJob(newJob, $scope.user._id)
+      .then((response) => {
         $scope.newJob = {};
+        $scope.jobType = false;
+        alert('Job successfully entered');
       });
   };
 });
