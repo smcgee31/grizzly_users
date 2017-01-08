@@ -10,4 +10,13 @@ angular.module('app').controller('jobsCtrl', function ($scope, $state, user, job
         alert('Job successfully entered');
       });
   };
+
+  $scope.getOneJob = (custPhone) => {
+    jobService.getOneJob(custPhone)
+      .then((response) => {
+        $scope.job = response.data;
+      })
+  };
+
+
 });

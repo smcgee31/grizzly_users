@@ -35,9 +35,9 @@ angular.module('app', ['ui.router'])
         }
       }
     })
-    .state('jobs', {
-        url: '/jobs'
-      , templateUrl: './app/routes/jobs/jobsTmpl.html'
+    .state('addJobs', {
+        url: '/addJobs'
+      , templateUrl: './app/routes/jobs/addJobsTmpl.html'
       , controller: 'jobsCtrl'
       , resolve: {
         user: (authService, $state) => {
@@ -50,10 +50,10 @@ angular.module('app', ['ui.router'])
         }
       }
     })
-    .state('past', {
-        url: '/past'
-      , templateUrl: './app/routes/past/pastTmpl.html'
-      , controller: 'pastCtrl'
+    .state('viewJobs', {
+        url: '/viewJobs'
+      , templateUrl: './app/routes/jobs/viewJobsTmpl.html'
+      , controller: 'jobsCtrl'
       , resolve: {
         user: (authService, $state) => {
           return authService.getCurrentUser().then((response) => {

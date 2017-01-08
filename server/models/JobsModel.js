@@ -3,7 +3,7 @@ const max      = require('./jobsMax.js');
 const objectId = mongoose.Schema.Types.ObjectId;
 
 const Jobs = new mongoose.Schema({
-      jobDate:               { type: String, required: true }
+      jobDate:               { type: String, required: true, index: true }
     , custName:              { type: String, required: true }
     , custPhone:             { type: String, required: true, index: true, trim: true  }
     , install_primaryHopper: { type: Number, min: 0, max: max.install_primaryHopper }

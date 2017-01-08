@@ -2,7 +2,7 @@
 <div class="login">
   
   <form class="loginForm" ng-submit="login(user)">
-    <input id="loginUsername" type="username" placeholder="Username..." ng-model="user.username" required/>
+    <input id="loginUsername" type="username" placeholder="Username..." ng-model="user.username" required autofocus/>
     <input id="loginPassword" type="password" placeholder="Password..." ng-model="user.password" required/><br />
     <button type="submit">Login</button>
   </form>
