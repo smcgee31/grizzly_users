@@ -5,7 +5,7 @@
   <form class="registerForm" ng-submit="register(newUser)">
     <div> 
       <label for="registerName">Name: </label>
-      <input id="registerName" type="text" ng-model="newUser.name" required autofocus/>
+      <input id="registerName" type="text" ng-model="newUser.name" required/>
     </div>
     <div>
       <label for="registerEmail">Email: </label>
@@ -13,7 +13,7 @@
     </div>
     <div>
       <label for="registerPhone">Phone: </label>
-      <input id="registerPhone" type="tel" pattern="(\d{3}-\d{3}-\d{4})" title="Phone format: xxx-xxx-xxxx" ng-model="newUser.phone" required/>
+      <input id="registerPhone" type="tel" pattern="(\d{3}-\d{3}-\d{4})" title="Phone format: ###-###-####" ng-model="newUser.phone" required/>
     </div>
     <div>
       <label for="registerUsername">Username: </label>

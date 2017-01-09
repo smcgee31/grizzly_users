@@ -3,21 +3,29 @@ angular.module('app').service('jobService', function ($http) {
   this.addJob = (newJob, id) => {
     return $http({
       method: 'POST',
-    url: `/jobs/${id}`,
+      url: `/addJob/${id}`,
       data: newJob
     }).then((response) => {
       return response.data;
     });
   };
-  
-  this.getOneJob = (custPhone, id) => {
+
+  this.getJobsByPhone = (phone) => {
     return $http({
       method: 'GET',
-      url: `/jobs/${id}`
+      url: `/viewJobs?${phone}`
     }).then((response) => {
       return response.data;
     });
   };
 
+  this.getJobsByDate = (date) => {
+    return $http({
+      method: 'GET',
+      url: `/viewJobs/${date}`
+    }).then((response) => {
+      return response.data;
+    });
+  };
   
 });

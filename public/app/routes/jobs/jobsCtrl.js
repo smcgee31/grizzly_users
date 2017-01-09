@@ -11,12 +11,34 @@ angular.module('app').controller('jobsCtrl', function ($scope, $state, user, job
       });
   };
 
-  $scope.getOneJob = (custPhone) => {
-    jobService.getOneJob(custPhone)
+  $scope.getJobsByDate = (date) => {
+    jobService.getJobsByDate(date)
       .then((response) => {
-        $scope.job = response.data;
-      })
+        $scope.jobs = response.data;
+      });
   };
 
+  $scope.getJobsByPhone = (phone) => {
+    console.log( 'phone:', phone );
+    jobService.getJobsByPhone(phone)
+      .then((response) => {
+        console.log( 'response:', response );
+        $scope.jobs = response.data;
+      });
+  };
+
+  // $scope.getJobs = (data) => {
+  //   if (Number.isInteger(data)) {
+  //     $scope.getJobsByPhone(data)
+  //       .then((response) => {
+  //         $scope.jobs = response.data;
+  //       });
+  //   } else {
+  //     $scope.getJobsByDate(data)
+  //       .then((response) => {
+  //         $scope.jobs = response.data;
+  //       });
+  //   }
+  // };
 
 });

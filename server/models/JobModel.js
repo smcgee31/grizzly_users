@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 const max      = require('./jobsMax.js');
 const objectId = mongoose.Schema.Types.ObjectId;
 
-const Jobs = new mongoose.Schema({
-      jobDate:               { type: String, required: true, index: true }
+const Job = new mongoose.Schema({
+      jobType:               { type: String, required: true}
+    , jobDate:               { type: String, required: true, index: true }
     , custName:              { type: String, required: true }
     , custPhone:             { type: String, required: true, index: true, trim: true  }
     , install_primaryHopper: { type: Number, min: 0, max: max.install_primaryHopper }
@@ -25,4 +26,4 @@ const Jobs = new mongoose.Schema({
     , user: { type: objectId, ref: 'User' }
 });
 
-module.exports = mongoose.model('Jobs', Jobs);
+module.exports = mongoose.model('Job', Job);

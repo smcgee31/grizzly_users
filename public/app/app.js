@@ -35,9 +35,9 @@ angular.module('app', ['ui.router'])
         }
       }
     })
-    .state('addJobs', {
-        url: '/addJobs'
-      , templateUrl: './app/routes/jobs/addJobsTmpl.html'
+    .state('addJob', {
+        url: '/addJob'
+      , templateUrl: './app/routes/jobs/addJobTmpl.html'
       , controller: 'jobsCtrl'
       , resolve: {
         user: (authService, $state) => {

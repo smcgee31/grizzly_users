@@ -1,13 +1,54 @@
 <nav-dir></nav-dir>
-<div class="past">
+<div class="viewJobs">
+
   <div class="userLine">
     Technician: {{user.name}}
   </div>
-  <p>Find Jobs</p>
-  <div class="findJobsBy">
-    <input id="findByPhone" type="radio" name="findJobsBy" ng-model="phone" value="phone"><label for="findByPhone">Find Jobs by Phone</label>
-    <input id="findByWeek" type="radio" name="findJobsBy" ng-model="weej" value="week"><label for="findByWeek">Find Jobs by Week</label>
-  </div>
-  <!-- end checksForJobType -->
+
+  <section>
+
+    <p>Find Jobs</p>
+
+    <div class="findJobsBy">
+      <p>To find all jobs you've done for a specific customer enter the customer's primary phone number.</p>
+      <label for="findByPhone"></label>
+      <input id="findByPhone" type="number" pattern="(\d{10})" title="Enter 10-digits with no separators" ng-model="phone">
+      <button type="submit" ng-click="getJobsByPhone(phone)">Get Jobs by Phone</button>
+    </div>
+
+    <div>
+      <p>To find all jobs in a given week choose a day and you will retrieve all jobs you've done for a 7 day period starting
+        with your chosen day.</p>
+      <label for="findByWeek"></label>
+      <input id="findByWeek" type="date" ng-model="date">
+      <button type="submit" ng-click="getJobsByDate(date)">Get Jobs by Date</button>
+    </div>
+    <!-- end findJobsBy -->
+
+  </section>
+
+  <section>
+    <div class="jobCard" ng-repeat="job in jobs">
+      {{job.jobType}}
+      {{job.jobDate}}
+      {{job.custName}}
+      {{job.custPhone}}
+      {{job.install_primaryHopper}}
+      {{job.install_addlHopper}}
+      {{job.install_joeys}}
+      {{job.install_primaryVip}}
+      {{job.install_addlVip}}
+      {{job.install_dishNet}}
+      {{job.upgrade_primaryHopper}}
+      {{job.upgrade_addlHopper}}
+      {{job.upgrade_addlJoey}}
+      {{job.upgrade_primaryVip}}
+      {{job.upgrade_addlVip}}
+      {{job.upgrade_dishKit}}
+      {{job.troubleCall}}
+      {{job.serviceCall}}
+      {{job.serviceInstall}}
+    </div>
+  </section>
 
 </div>

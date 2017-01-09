@@ -3,20 +3,22 @@
   <div class="userLine">
     Technician: {{user.name}}
   </div>
+  
   <p>Choose your Job Type</p>
-  <div class="checksForJobType">
-    <input id="checkForInstall" type="radio" name="jobType" ng-model="jobType" value="install" ng-click="resetForm(newJob)"><label for="checkForInput">Install</label>
-    <input id="checkForUpgrade" type="radio" name="jobType" ng-model="jobType" value="upgrade" ng-click="resetForm(newJob)"><label for="checkForUpgrade">Upgrade</label>
-    <input id="checkForService" type="radio" name="jobType" ng-model="jobType" value="service" ng-click="resetForm(newJob)"><label for="checkForService">Service</label>
+  <div class="checksFornewJob.jobType">
+    <input id="checkForInstall" type="radio" name="jobType" ng-model="newJob.jobType" value="Install" ng-click="resetForm(newJob)"><label for="checkForInput">Install</label>
+    <input id="checkForUpgrade" type="radio" name="jobType" ng-model="newJob.jobType" value="Upgrade" ng-click="resetForm(newJob)"><label for="checkForUpgrade">Upgrade</label>
+    <input id="checkForService" type="radio" name="jobType" ng-model="newJob.jobType" value="Service" ng-click="resetForm(newJob)"><label for="checkForService">Service</label>
   </div>
   <!-- end checksForJobType -->
-  <p>Enter the Job Information</p>
+
+  <p ng-show="newJob.jobType === 'Install' || newJob.jobType === 'Upgrade' || newJob.jobType === 'Service'">Enter the job information below</p>
   <form class="jobsForm" name="newJob" ng-submit="addJob(newJob)" autocomplete="off">
 
-    <div class="custInfo" ng-show="jobType === 'install' || jobType === 'upgrade' || jobType === 'service'">
+    <div class="custInfo" ng-show="newJob.jobType === 'Install' || newJob.jobType === 'Upgrade' || newJob.jobType === 'Service'">
       <div>
         <label for="jobDate">Date of Job: </label>
-        <input id="jobDate" type="date" ng-model="newJob.jobDate" autofocus required>
+        <input id="jobDate" type="date" ng-model="newJob.jobDate" required>
       </div>
       <div>
         <label for="custName">Customer Name: </label>
@@ -29,7 +31,7 @@
     </div>
     <!-- end custInfo -->
 
-    <div class="installInfo" ng-show="jobType === 'install'">
+    <div class="installInfo" ng-show="newJob.jobType === 'Install'">
       <div>
         <input id="install_primaryHopper" type="checkbox" ng-model="newJob.install_primaryHopper" value="1"><label for="install_primaryHopper">Installed Primary Hopper</label>
       </div>
@@ -68,7 +70,7 @@
     </div>
     <!-- end installInfo -->
 
-    <div class="upgradeInfo" ng-show="jobType === 'upgrade'">
+    <div class="upgradeInfo" ng-show="newJob.jobType === 'Upgrade'">
       <div>
         <input id="upgrade_primaryHopper" type="checkbox" ng-model="newJob.upgrade_primaryHopper" value="1"><label for="upgrade_primaryHopper">Upgraded Primary Hopper</label>
       </div>
@@ -108,7 +110,7 @@
     </div>
     <!-- end upgradeInfo -->
 
-    <div class="serviceInfo" ng-show="jobType === 'service'">
+    <div class="serviceInfo" ng-show="newJob.jobType === 'Service'">
       <div>
         <input id="troubleCall" type="checkbox" ng-model="newJob.troubleCall" value="1"><label for="troubleCall">Performed Trouble Call</label>
       </div>
@@ -123,7 +125,7 @@
     </div>
     <!-- end serviceInfo -->
 
-    <button type="submit" ng-show="jobType === 'install' || jobType === 'upgrade' || jobType === 'service'">Submit Job</button>
+    <button type="submit" ng-show="newJob.jobType === 'Install' || newJob.jobType === 'Upgrade' || newJob.jobType === 'Service'">Submit Job</button>
 
   </form>
 

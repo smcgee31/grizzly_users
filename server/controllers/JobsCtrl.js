@@ -1,5 +1,5 @@
 const User = require('../models/UserModel');
-const Jobs = require('../models/JobsModel');
+const Job = require('../models/JobModel');
 
 module.exports = {
 
@@ -20,8 +20,8 @@ module.exports = {
     });
   },
 
-  getOneJob: (req, res, next) => {
-    Jobs.findOne(req.jobs.custPhone, (err, resp) => {
+  getJobsByPhone: (req, res, next) => {
+    Jobs.findOne(req.job.phone, (err, resp) => {
       if (err) {
         res.status(500).json(err);
       } else {
