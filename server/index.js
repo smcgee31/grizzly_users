@@ -59,6 +59,6 @@ mongoose.connect(mongoURI);
 mongoose.connection.once('open', () => {
   console.log( `Connected to MongoDB at ${mongoURI}` );
   app.listen(port, () => {
-    console.log( `!!! PARTY TIME !!!\nServer running on port ${port}` );
+    console.log( `!!! SUCCESS !!!\nServer running on port ${port}` );
   });
 });
