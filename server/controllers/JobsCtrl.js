@@ -5,15 +5,15 @@ module.exports = {
 
   addJob: (req, res, next) => {
     const newJob = new Job(req.body);
-    newJob.save((err, result) => {
+    newJob.save((err) => {
       if (err) {
         res.status(500).json(err);
       } else {
-        User.findByIdAndUpdate(req.user.id, { $push: { jobs: result._id } }, (err, resp) => {
-          if (err) {
-            res.status(500).json(err);
+        User.findByIdAndUpdate(req.user.id, { $push: { jobs: result._id } }, (error, reply) => {
+          if (error) {
+            res.status(500).json(error);
           } else {
-            res.status(200).json(resp);
+            res.status(200).json(reply);
           }
         });
       }

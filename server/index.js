@@ -35,7 +35,7 @@ app.use(passport.session());
 // PASSPORT ENDPOINTS
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/me'
-}));
+ }));
 app.get('/logout', (req, res, next) => {
   req.logout();
   return res.status(200).send('logged out');
@@ -47,7 +47,7 @@ app.get('/user', UserCtrl.read);
 app.get('/me', isAuthed, UserCtrl.me);
 app.put('/user/:_id', isAuthed, UserCtrl.update);
 
-// OTHER ENDPOINTS
+// JOB ENDPOINTS
 app.post('/addJob/:id', JobsCtrl.addJob);
 app.get('/viewJobs/:phone', JobsCtrl.getJobsByPhone);
 

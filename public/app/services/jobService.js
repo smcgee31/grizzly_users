@@ -13,7 +13,7 @@ angular.module('app').service('jobService', function ($http) {
   this.getJobsByPhone = (phone) => {
     return $http({
       method: 'GET',
-      url: `/viewJobs?${phone}`
+      url: `/viewJobs/${phone}`
     }).then((response) => {
       return response.data;
     });

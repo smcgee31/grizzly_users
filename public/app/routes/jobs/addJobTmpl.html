@@ -13,9 +13,9 @@
   <!-- end checksForJobType -->
 
   <p ng-show="newJob.jobType === 'Install' || newJob.jobType === 'Upgrade' || newJob.jobType === 'Service'">Enter the job information below</p>
-  <form class="jobsForm" name="newJob" ng-submit="addJob(newJob)" autocomplete="off">
 
-    <div class="custInfo" ng-show="newJob.jobType === 'Install' || newJob.jobType === 'Upgrade' || newJob.jobType === 'Service'">
+  <form class="installForm" name="newInstallJob" ng-submit="addJob(newJob)" autocomplete="off" ng-show="newJob.jobType === 'Install'">
+    <div class="custInfo">
       <div>
         <label for="jobDate">Date of Job: </label>
         <input id="jobDate" type="date" ng-model="newJob.jobDate" required>
@@ -31,7 +31,7 @@
     </div>
     <!-- end custInfo -->
 
-    <div class="installInfo" ng-show="newJob.jobType === 'Install'">
+    <div class="installInfo">
       <div>
         <input id="install_primaryHopper" type="checkbox" ng-model="newJob.install_primaryHopper" value="1"><label for="install_primaryHopper">Installed Primary Hopper</label>
       </div>
@@ -69,6 +69,25 @@
       </div>
     </div>
     <!-- end installInfo -->
+    <button type="submit">Submit Job</button>
+  </form>
+
+  <form class="upgradeForm" name="newInstallJob" ng-submit="addJob(newJob)" autocomplete="off" ng-show="newJob.jobType === 'Upgrade'">
+    <div class="custInfo">
+      <div>
+        <label for="jobDate">Date of Job: </label>
+        <input id="jobDate" type="date" ng-model="newJob.jobDate" required>
+      </div>
+      <div>
+        <label for="custName">Customer Name: </label>
+        <input id="custName" type="text" ng-model="newJob.custName" required>
+      </div>
+      <div>
+        <label for="custPhone">Customer Phone: </label>
+        <input id="custPhone" type="tel" ng-model="newJob.custPhone" required>
+      </div>
+    </div>
+    <!-- end custInfo -->
 
     <div class="upgradeInfo" ng-show="newJob.jobType === 'Upgrade'">
       <div>
@@ -109,24 +128,41 @@
       </div>
     </div>
     <!-- end upgradeInfo -->
+    <button type="submit">Submit Job</button>
+  </form>
+
+  <form class="serviceForm" name="newServiceJob" ng-submit="addJob(newJob)" autocomplete="off" ng-show="newJob.jobType === 'Service'">
+    <div class="custInfo">
+      <div>
+        <label for="jobDate">Date of Job: </label>
+        <input id="jobDate" type="date" ng-model="newJob.jobDate" required>
+      </div>
+      <div>
+        <label for="custName">Customer Name: </label>
+        <input id="custName" type="text" ng-model="newJob.custName" required>
+      </div>
+      <div>
+        <label for="custPhone">Customer Phone: </label>
+        <input id="custPhone" type="tel" ng-model="newJob.custPhone" required>
+      </div>
+    </div>
+    <!-- end custInfo -->
 
     <div class="serviceInfo" ng-show="newJob.jobType === 'Service'">
       <div>
-        <input id="troubleCall" type="checkbox" ng-model="newJob.troubleCall" value="1"><label for="troubleCall">Performed Trouble Call</label>
+        <input id="troubleCall" type="radio" name="serviceType" ng-model="newJob.troubleCall" required value="1"><label for="troubleCall">Performed Trouble Call</label>
       </div>
       <div>
-        <input id="serviceCall" type="checkbox" ng-model="newJob.serviceCall" value="1"><label for="serviceCall">Performed Service Call</label>
+        <input id="serviceCall" type="radio" name="serviceType" ng-model="newJob.serviceCall" required value="1"><label for="serviceCall">Performed Service Call</label>
       </div>
       <div>
-        <input id="serviceInstall" type="checkbox" ng-model="newJob.serviceInstall" value="1"><label for="serviceInstall">Performed Service Install</label>
+        <input id="serviceInstall" type="radio" name="serviceType" ng-model="newJob.serviceInstall" required value="1"><label for="serviceInstall">Performed Service Install</label>
       </div>
       <div>
       </div>
     </div>
     <!-- end serviceInfo -->
-
-    <button type="submit" ng-show="newJob.jobType === 'Install' || newJob.jobType === 'Upgrade' || newJob.jobType === 'Service'">Submit Job</button>
-
+    <button type="submit">Submit Job</button>
   </form>
 
 </div>
