@@ -3,6 +3,7 @@ const express    = require('express')
     , bodyParser = require('body-parser')
     , session    = require('express-session')
     , mongoose   = require('mongoose')
+    , favicon    = require('serve-favicon')
 // CONFIG
     , config     = require('./config')
 // CONTROLLERS

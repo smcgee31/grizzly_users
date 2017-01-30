@@ -5,7 +5,7 @@ module.exports = {
 
   addJob: (req, res, next) => {
     const newJob = new Job(req.body);
-    newJob.save((err) => {
+    newJob.save((err, result) => {
       if (err) {
         res.status(500).json(err);
       } else {
