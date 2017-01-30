@@ -6,24 +6,27 @@ angular.module('app', ['ui.router'])
 
   $stateProvider
     .state('home', {
-        url: '/'
+        url:         '/'
       , templateUrl: './app/routes/home/homeTmpl.html'
-      , controller: 'homeCtrl'
+      , controller:  'homeCtrl'
     })
+
     .state('register', {
-        url: '/register'
+        url:         '/register'
       , templateUrl: './app/routes/register/registerTmpl.html'
-      , controller: 'registerCtrl'
+      , controller:  'registerCtrl'
     })
+
     .state('login', {
-        url: '/login'
+        url:         '/login'
       , templateUrl: './app/routes/login/loginTmpl.html'
-      , controller: 'loginCtrl'
+      , controller:  'loginCtrl'
     })
+
     .state('profile', {
-        url: '/profile'
+        url:         '/profile'
       , templateUrl: './app/routes/profile/profileTmpl.html'
-      , controller: 'profileCtrl'
+      , controller:  'profileCtrl'
       , resolve: {
         user: (authService, $state) => {
           return authService.getCurrentUser().then((response) => {
@@ -35,10 +38,11 @@ angular.module('app', ['ui.router'])
         }
       }
     })
+
     .state('addJob', {
-        url: '/addJob'
+        url:         '/addJob'
       , templateUrl: './app/routes/jobs/addJobTmpl.html'
-      , controller: 'jobsCtrl'
+      , controller:  'jobsCtrl'
       , resolve: {
         user: (authService, $state) => {
           return authService.getCurrentUser().then((response) => {
@@ -50,10 +54,11 @@ angular.module('app', ['ui.router'])
         }
       }
     })
+    
     .state('viewJobs', {
-        url: '/viewJobs'
+        url:         '/viewJobs'
       , templateUrl: './app/routes/jobs/viewJobsTmpl.html'
-      , controller: 'jobsCtrl'
+      , controller:  'jobsCtrl'
       , resolve: {
         user: (authService, $state) => {
           return authService.getCurrentUser().then((response) => {

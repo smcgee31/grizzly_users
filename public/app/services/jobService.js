@@ -3,8 +3,8 @@ angular.module('app').service('jobService', function ($http) {
   this.addJob = (newJob, id) => {
     return $http({
       method: 'POST',
-      url: `/addJob/${id}`,
-      data: newJob
+      url:    `/addJob/${id}`,
+      data:   newJob
     }).then((response) => {
       return response.data;
     });
@@ -13,7 +13,7 @@ angular.module('app').service('jobService', function ($http) {
   this.getJobsByPhone = (phone) => {
     return $http({
       method: 'GET',
-      url: `/viewJobs/${phone}`
+      url:    `/viewJobs/${phone}`
     }).then((response) => {
       return response.data;
     });
@@ -22,7 +22,7 @@ angular.module('app').service('jobService', function ($http) {
   this.getJobsByDate = (date) => {
     return $http({
       method: 'GET',
-      url: `/viewJobs/${date}`
+      url:    `/viewJobs/${date}`
     }).then((response) => {
       return response.data;
     });

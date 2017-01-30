@@ -1,5 +1,5 @@
 const User = require('../models/UserModel');
-const Job = require('../models/JobModel');
+const Job  = require('../models/JobModel');
 
 module.exports = {
 

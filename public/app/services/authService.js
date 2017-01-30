@@ -7,8 +7,8 @@ angular.module('app').service('authService', function($http) {
     // unless modified from 'email' to 'username'
     return $http({
       method: 'post',
-      url: '/login',
-      data: user
+      url:    '/login',
+      data:   user
     }).then((response) => {
       return response;
     });
@@ -17,7 +17,7 @@ angular.module('app').service('authService', function($http) {
   this.logout = () => {
     return $http({
       method: 'get',
-      url: '/logout'
+      url:    '/logout'
     }).then((response) => {
       return response;
     });
@@ -26,7 +26,7 @@ angular.module('app').service('authService', function($http) {
   this.getCurrentUser = () => {
     return $http({
       method: 'GET',
-      url: '/me'
+      url:    '/me'
     }).then((response) => {
       return response;
     });
@@ -35,8 +35,8 @@ angular.module('app').service('authService', function($http) {
   this.registerUser = (user) => {
     return $http({
       method: 'POST',
-      url: '/register',
-      data: user
+      url:    '/register',
+      data:   user
     }).then((response) => {
       return response;
     });
@@ -45,10 +45,11 @@ angular.module('app').service('authService', function($http) {
   this.editUser = (id, user) => {
     return $http({
       method: 'PUT',
-      url: "/user/" + id,
-      data: user
+      url:    "/user/" + id,
+      data:   user
     }).then((response) => {
       return response;
     });
   };
+  
 });
