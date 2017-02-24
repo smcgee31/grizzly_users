@@ -50,7 +50,7 @@ app.put('/user/:_id', isAuthed, UserCtrl.update);
 
 // JOB ENDPOINTS
 app.post('/addJob/:id', JobsCtrl.addJob);
-app.get('/viewJobs/:phone', JobsCtrl.getJobsByPhone);
+app.post('/viewJobs/:phone', JobsCtrl.getJobsByPhone);
 
 // CONNECTIONS
 const mongoURI = config.MONGO_URI;

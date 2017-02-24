@@ -1,3 +1,5 @@
+// Route controller
+
 angular.module('app').controller('jobsCtrl', function ($scope, $state, user, jobService) {
   $scope.user = user;
   $scope.jobType = false;
@@ -14,16 +16,14 @@ angular.module('app').controller('jobsCtrl', function ($scope, $state, user, job
   $scope.getJobsByDate = (date) => {
     jobService.getJobsByDate(date)
       .then((response) => {
-        $scope.jobs = response.data;
+        $scope.dateJobs = response.data;
       });
   };
 
   $scope.getJobsByPhone = (phone) => {
-    console.log( 'phone:', phone );
     jobService.getJobsByPhone(phone)
       .then((response) => {
-        console.log( 'response:', response );
-        $scope.jobs = response.data;
+        $scope.phoneJobs = response;
       });
   };
 

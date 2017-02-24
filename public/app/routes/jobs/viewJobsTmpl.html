@@ -28,11 +28,16 @@
   </section>
 
   <section>
-    <div class="jobCard" ng-repeat="job in jobs">
-      {{job.jobType}}
-      {{job.jobDate}}
+    <div class="jobCard" ng-repeat="job in phoneJobs">
+      <div>
       {{job.custName}}
       {{job.custPhone}}
+      </div>
+      <div>
+      {{job.jobType}}
+      {{job.jobDate}}
+      </div>
+      <div>
       {{job.install_primaryHopper}}
       {{job.install_addlHopper}}
       {{job.install_joeys}}
@@ -48,6 +53,7 @@
       {{job.troubleCall}}
       {{job.serviceCall}}
       {{job.serviceInstall}}
+      </div>
     </div>
   </section>
 

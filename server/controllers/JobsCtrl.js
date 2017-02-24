@@ -1,3 +1,5 @@
+// Jobs Server Controller
+
 const User = require('../models/UserModel');
 const Job  = require('../models/JobModel');
 
@@ -21,19 +23,19 @@ module.exports = {
   },
 
   getJobsByPhone: (req, res, next) => {
-    Jobs.findOne(req.job.phone, (err, resp) => {
-      if (err) {
-        res.status(500).json(err);
-      } else {
-        res.status(200).json(resp);
-      }
+    Job.find({custPhone: req.params.phone}, (err, resp) => {
+          if (err) {
+            res.status(500).json(err);
+          } else {
+            res.status(200).json(resp);
+          }
     });
   },
 
 // Probably won't want to get ALL jobs, but for a specific time frame.
 // Otherwise it may be too much for even the user to try to sort through.
   getJobs: (req, res, next) => {
-    Jobs.find().exec((err, resp) => {
+    Job.find().exec((err, resp) => {
       if (err) {
         res.status(500).json(err);
       } else {
